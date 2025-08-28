@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Star Adventure Time</title>
+<!-- Шрифт ретро -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    font-family: 'Press Start 2P', cursive;
+    color: #00ffea;
+    background-image: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Неоновый стиль для заголовков и текста */
+  h1, h2, h3 {
+    text-shadow:
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      0 0 20px #00ffff,
+      0 0 40px #00ffff;
+    color: #00ffff;
+  }
+
+  header {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+    box-shadow: 0 0 20px rgba(0,255,234,0.5);
+    position: relative; /* чтобы звезды не мешали */
+    z-index:2;
+  }
+
+  h1 {
+    font-size: 48px;
+    margin: 0;
+    text-shadow:
+      0 0 10px #00ffff,
+      0 0 20px #00ffff,
+      0 0 40px #00ffff,
+      inset -2px -2px #000,
+      inset +2px +2px #000;
+    color:#00ffff;
+    letter-spacing:2px;
+    animation: neon-glow-1 .5s alternate infinite ease-in-out;
+}
+
+@keyframes neon-glow-1 {
+   from { text-shadow:
+     		0
+       		0
+       		10
+       		rgba(255,255,255,.8),
+       		0
+       		20
+       		rgba(255,255,255,.8),
+       		0
+       		40
+       		rgba(255,255,255,.8),
+       	inset -4px -4px rgba(255,255,255,.3),
+       	inset4px4px rgba(255,255,255,.3); }
+   to { text-shadow:
+     		0
+       		0
+       		10
+       		rgba(255,255,255,.8),
+       		0
+       		20
+       		rgba(255,255,255,.8),
+       		0
+       		40
+       		rgba(255,255,255,.8),
+       	inset -4px -4px rgba(255,255,255,.3),
+       	inset4px4px rgba(255,255,255,.3); }
+}
+
+.logo {
+    display: block;
+    margin:20px auto;
+    width:200px;
+    height:auto;
+}
+
+/* Основной стиль для main */
+main {
+    max-width:800px;
+    margin:auto;
+    padding:20px;
+    background-color: rgba(0,0,0, .7);
+    border-radius:10px;
+	box-shadow:
+			inset
+			0
+			0
+			10px
+			rgba(255,255,255,.3),
+			inset
+			-4px
+			-4px
+			10px
+			rgba(255,255,255,.3),
+			4px
+			4px
+			10px
+			rgba(255,255,255,.3);
+}
+
+/* Неоновые кнопки (если понадобятся в будущем) */
+.btn {
+	display:inline-block;
+	padding:15px30px;
+	margin-top:20pxtopx;
+	font-family:'Press Start+2P', cursive;
+	font-size:14pxtopx;
+	color:#000;
+	background-color:#00ffea;
+	border-radius:8pxtopx;
+	text-decoration:none;
+	box-shadow:
+				inset -2pxtopx -2pxtopx rgba(255,255,255,.3),
+				inset +2pxtopx +2pxtopx rgba(255,255,255,.3),
+				2pxtopx2pxtopx5pxtopx rgba(0,255,234,.7);
+   transition:.3s all;
+}
+.btn:hover {
+   background-color:#00cccc;
+   transform:scale(1.05);
+}
+
+/* Звезды задний план и анимация движения */
+#stars-background {
+	position:absolute; top:0; left:0; width:100%; height:auto; z-index:-1; overflow:hidden;}
+.star-bg {
+	position:absolute; top:-10%; left:-10%; width:120%; height:auto; animation:nameMoveStars linear infinite;}
+@keyframes nameMoveStars {
+	from {transform : translateX(0);}
+	to {transform : translateX(-50%);}
+}
+
+/* Звезды для заднего плана */
+.star-background {
+	position:absolute; top:-50%; left:-50%; width:auto; height:auto; min-width:200%; min-height:200%;
+	background-image:url('');
+	background-repeat:no-repeat;background-size:auto;background-position:center;}
+/* Мелкие мерцающие звезды на заднем плане */
+@keyframes twinkle-background {
+      from { opacity:.8; }
+      to { opacity:.3; }
+}
+.star {
+      position:absolute;
+      width:.5em;
+      height:.5em;
+      background:white;
+      border-radius:.25em;
+      opacity:.8;
+      animation-name:'twinkle';
+      animation-duration:.8s;
+      animation-iteration-count:'infinite';
+      animation-direction:'alternate';
+}
+#stars { position:absolute; top:0; left:0; width:100%; height:auto; z-index:-1;}
+
+.trailer-container {
+          margin-top:30px;text-align:center;}
+iframe {
+          width:100%; max-width:720px; height:auto; aspect-ratio :16/9;border:none;border-radius:8px; box-shadow:0;}
+</style>
+</head>
+<body>
+
+<!-- Звездное небо задний план -->
+<div id="stars-background">
+<div class="star-background"></div>
+</div>
+
+<!-- Мелкие мерцающие звезды -->
+<div id="stars"></div>
+
+<header>
+<h1>Star Adventure Time</h1>
+</header>
+
+<!-- Логотип -->
+<img src="" alt="Космос" class="logo"/>
+
+<main>
+<h2 style="text-align:center;">Secret</h2>
+<p style="text-align:center;">Secret???.</p>
+
+<!-- Убраны кнопки "Играть", "Об игре", "Настройки" -->
+
+<!-- Встроенный видеоплеер для вашего видео -->
+<div class="trailer-container">
+<h3 style="color:#00ffea;">Посмотрите трейлер игры</h3>
+<!-- Вставьте сюда свой видеофайл или ссылку на видео -->
+<!-- Например -->
+<video controls width="100%" style="max-width:720px;border-radius:8px;">
+<source src="0828dd.mp4" type="0828dd/mp4" />
+Ваш браузер не поддерживает тег video.
+</video>
+<!-- Или вставьте iframe для YouTube -->
+<!--
+<iframe src="https://www.youtube.com/embed/ВАШЕ_ВИДЕО_ID" allowfullscreen></iframe>
+-->
+</div>
+
+<!-- График курса биткойна -->
+<div class="trailer-container" style="margin-top:px;">
+<h3 style="color:#00ffea;">Курс биткойна (BTC/USD)</h3>
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+new TradingView.widget({
+ "width": "100%",
+ "height": "400",
+ "symbol": "BITSTAMP:{BTCUSD}",
+ "interval": "D",
+ "timezone": "Etc/UTC",
+ "theme": "dark",
+ "style": "1",
+ "locale": "ru",
+ "toolbar_bg": "#222",
+ "enable_publishing": false,
+ "hide_side_toolbar": false,
+ "allow_symbol_change": true,
+ "container_id": "tradingview_chart"
+});
+</script>
+<div id="tradingview_chart"></div>
+</div>
+s
+
+
+<p style="text-align:center;margin-top:px;">Игра еще не вышла. Следите за новостями!</p>
+</main>
+<!-- Следите за новостями и ваши соцсети -->
+<div style="text-align:center;margin-top:px;">
+<p>Следите за новостями:</p>
+<ul style="list-style:none;padding-left:none;">
+<li><a href="t.me/starcompany22" target="_blank" style="color:#00ffff;text-decoration:none;">Telegram</a></li>
+<li><a href="https://discord.gg/p3gXus3as" target="_blank" style="color:#00ffff;text-decoration:none;">Discord</a></li>
+<li><a href="#" target="_blank" style="color:#00ffff;text-decoration:none;">Ваша соцсеть</a></li>
+</ul>
+</div>
+
+
+<footer>&copy;2025 Star Company</footer>
+
+<script>
+// Скрипт для звездного неба заднего плана (движущиеся звезды)
+const starBgContainer = document.querySelector('.star-background');
+
+function createStarBg() {
+const star = document.createElement('div');
+star.className='star';
+star.style.top = Math.random()*200+'%';
+star.style.left = Math.random()*200+'%';
+star.style.width = (Math.random()*1+.5)+'em';
+star.style.height = star.style.width;
+// анимация мерцания для фона
+star.style.animationDuration = (Math.random()*1+.5)+'s';
+
+starBgContainer.appendChild(star);
+
+// удалять через некоторое время чтобы не было перегрузки DOM
+setTimeout(() => {
+star.remove();
+createStarBg();
+}, Math.random()*300+300);
+}
+
+// создаем много звезд фона с движением и мерцанием
+for(let i=0;i<150;i++) {
+createStarBg();
+}
+</script>
+
+</body>
+</html>
